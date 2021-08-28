@@ -10,8 +10,8 @@ jobs:
         run: echo github-actions-path ${{ github.action_path }}
       - name: show cwd
         run: pwd && ls -la && find ./.github/workflows
-#      - id: foo
-#        uses: ./.github/actions/hello-world
+      - id: foo
+        uses: ./.github/actions/hello-world
 #        with:
 #          who-to-greet: 'Mona the Octocat'
 #      - run: echo random-number ${{ steps.foo.outputs.random-number }}
