@@ -18,7 +18,8 @@ runs:
       shell: bash
     - name: Setup Scala
       uses: olafurpg/setup-scala@v10
-    - uses: ./.github/actions/goodbye
+    - name: Call Goodbye Action
+      uses: ./.github/actions/goodbye
 #      with:
 #        who-to-bye: 'Mona the Octocat'
 #    - id: random-number-generator
