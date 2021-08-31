@@ -3,7 +3,7 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: No inputs to composite-action (works)
     steps:
       - uses: actions/checkout@v2
       - name: show path
@@ -12,7 +12,7 @@ jobs:
         run: pwd && ls -la && find ./.github/workflows
       - id: foo
         uses: ./.github/actions/hello-world
-#        with:
-#          who-to-greet: 'Mona the Octocat'
+        with:
+          who-to-greet: 'Mona the Octocat'
 #      - run: echo random-number ${{ steps.foo.outputs.random-number }}
 #        shell: bash
