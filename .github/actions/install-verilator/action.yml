@@ -2,9 +2,9 @@ name: install-verilator
 description: 'installs verilator on remote build machine'
 
 runs:
-  using: "composite"
   env:
     secret: ssh-secret
+  using: "composite"
   steps:
     - name: build-verilator
       run: echo verilator remote secret is ${{ secret }}
