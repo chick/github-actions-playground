@@ -19,5 +19,6 @@ jobs:
         run: |
           cat riscv-tools-toolchain-artifact
           cat esp-tools-toolchain-artifact
+          cat build-verilator
       - name: Show directory
         run: ls -ltr
