@@ -1,0 +1,13 @@
+name: toolchain-build
+description: 'Builds the selected toolchain'
+inputs:
+  tools-version:
+    description: Which toolchain to build
+    required: false
+    default: 'riscv-tools'
+runs:
+  using: "composite"
+  steps:
+    - run: echo TOOLCHAIN-BUILD ${{ inputs.tools-version }} > riscv-toolchain-artifact
+      shell: bash
+

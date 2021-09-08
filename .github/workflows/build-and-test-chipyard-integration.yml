@@ -10,3 +10,5 @@ jobs:
         uses: ./.github/actions/install-riscv-toolchain
       - name: show artifact
         run: cat riscv-toolchain-artifact
+      - name: Show directory
+        run: ls -ltr

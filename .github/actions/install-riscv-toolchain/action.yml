@@ -6,4 +6,9 @@ runs:
   steps:
     - run: echo Hello > riscv-toolchain-artifact
       shell: bash
+    - name: Call build-toolchain riscv-tools
+      uses: ./.github/actions/toolchain-build
+      with:
+        tools-version: 'riscv-tools'
+
 
