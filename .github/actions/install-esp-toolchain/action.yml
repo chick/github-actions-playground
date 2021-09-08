@@ -4,8 +4,8 @@ description: 'Builds the RISCV toolchain'
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v2
     - name: Call build-toolchain riscv-tools
       uses: ./.github/actions/toolchain-build
       with:
-        tools-version: 'riscv-tools'
+        tools-version: 'esp-tools'
+
