@@ -1,5 +1,5 @@
-name: install-riscv-toolchain
-description: 'Builds the RISCV toolchain'
+name: install-verilator
+description: 'installs verilator on remote build machine'
 
 runs:
   using: "composite"
