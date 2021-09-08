@@ -1,0 +1,10 @@
+name: install-riscv-toolchain
+description: 'Builds the RISCV toolchain'
+
+runs:
+  using: "composite"
+  steps:
+    - run: echo Hello > riscv-toolchain-artifact
+      shell: bash
+    - run: cat riscv-toolchain-artifact
+      shell: bash
