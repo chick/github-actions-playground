@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     name: build-and-test-chipyard-integration
     steps:
+      - uses: actions/checkout@v2
       - id: install-riscv-toolchain
         uses: ./.github/actions/install-riscv-toolchain
       - id: install-esp-toolchain
