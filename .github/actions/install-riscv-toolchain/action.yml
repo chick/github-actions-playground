@@ -6,5 +6,4 @@ runs:
   steps:
     - run: echo Hello > riscv-toolchain-artifact
       shell: bash
-    - run: cat riscv-toolchain-artifact
-      shell: bash
+

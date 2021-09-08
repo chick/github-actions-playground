@@ -8,3 +8,5 @@ jobs:
       - uses: actions/checkout@v2
       - id: install-riscv-toolchain
         uses: ./.github/actions/install-riscv-toolchain
+      - name: show artifact
+        run: cat riscv-toolchain-artifact
