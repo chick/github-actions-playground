@@ -5,5 +5,5 @@ runs:
   using: "composite"
   steps:
     - name: build-verilator
-      run: echo verilator remote secret is ${{ secret }}
+      run: echo verilator remote BUILDSERVER is ${{ secrets.BUILDSERVER }}
       shell: bash
