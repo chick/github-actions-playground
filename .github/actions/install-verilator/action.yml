@@ -1,0 +1,11 @@
+name: install-riscv-toolchain
+description: 'Builds the RISCV toolchain'
+
+runs:
+  using: "composite"
+  env:
+    secret: ssh-secret
+  steps:
+    - name: build-verilator
+      run: echo verilator remote secret is ${{ secret }}
+      shell: bash

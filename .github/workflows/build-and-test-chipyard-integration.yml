@@ -10,6 +10,8 @@ jobs:
         uses: ./.github/actions/install-riscv-toolchain
       - id: install-esp-toolchain
         uses: ./.github/actions/install-esp-toolchain
+      - id: build-verilator
+        uses: ./.github/actions/build-verilator
       - name: show artifact
         run: |
           cat riscv-tools-toolchain-artifact

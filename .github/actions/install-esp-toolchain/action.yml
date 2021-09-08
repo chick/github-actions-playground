@@ -1,5 +1,5 @@
-name: install-riscv-toolchain
-description: 'Builds the RISCV toolchain'
+name: install-esp-toolchain
+description: 'Builds the ESP toolchain'
 
 runs:
   using: "composite"
@@ -8,4 +8,3 @@ runs:
       uses: ./.github/actions/toolchain-build
       with:
         tools-version: 'esp-tools'
-
