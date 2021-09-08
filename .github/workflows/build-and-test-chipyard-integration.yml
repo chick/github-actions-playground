@@ -11,9 +11,10 @@ jobs:
       - id: install-esp-toolchain
         uses: ./.github/actions/install-esp-toolchain
       - id: build-verilator
-        env:
-          secret: MySshSecret
         uses: ./.github/actions/install-verilator
+        with:
+          build-server: ${{ secrets.BUILDSERVER }}
+          build-user: ${{ secrets.BUILDUSER }}
       - name: show artifact
         run: |
           cat riscv-tools-toolchain-artifact

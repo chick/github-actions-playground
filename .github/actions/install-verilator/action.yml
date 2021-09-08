@@ -1,9 +1,16 @@
 name: install-verilator
 description: 'installs verilator on remote build machine'
+inputs:
+  build-server:
+    description: "Remote build server"
+    required: true
+  build-user:
+    description: "Remote build user"
+    required: true
 
 runs:
   using: "composite"
   steps:
     - name: build-verilator
-      run: echo verilator remote BUILDSERVER is ${{ secrets.BUILDSERVER }}
+      run: echo building verilator remote on BUILDSERVER is ${{ inputs.build-user }}@${{ inputs.build-server }}
       shell: bash
