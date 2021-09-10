@@ -15,7 +15,7 @@ runs:
       with:
         path: ${{ inputs.tools-version }}-toolchain-artifact
         key: ${{ inputs.tools-version }}
-        restore-keys: ${{ inputs.tools-version }}
+#        restore-keys: ${{ inputs.tools-version }}
     - name: generate data if cache miss
       run: |
         if [[ "${{ steps.toolchain-id.outputs.cache-hit }}" != 'true' ]]; then
