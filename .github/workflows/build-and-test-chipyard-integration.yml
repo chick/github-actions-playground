@@ -29,4 +29,4 @@ jobs:
           cat esp-tools-toolchain-artifact
           cat build-verilator
           cat MY-CACHE-KEY
-          cat RISCV-DIRECT-toolchain-artifact
+          cat RISCVDIRECT-toolchain-artifact
