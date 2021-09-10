@@ -15,6 +15,7 @@ runs:
       with:
         path: ${{ inputs.tools-version }}
         key: ${{ inputs.tools-version }}
+        restore-keys: ${{ inputs.tools-version }}
     - name: run stuff
       run: |
         echo "abcdef" > ${{ inputs.tools-version }}
