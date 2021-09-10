@@ -19,8 +19,8 @@ jobs:
         with:
           build-server: ${{ secrets.BUILDSERVER }}
           build-user: ${{ secrets.BUILDUSER }}
-      - id: run-fixed-key
-        uses: ./.github/actions/fixed-key
+#      - id: run-fixed-key
+#        uses: ./.github/actions/fixed-key
       - name: Show directory
         run: ls -ltr
       - name: show artifacts created
