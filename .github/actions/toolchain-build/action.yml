@@ -13,7 +13,7 @@ runs:
     - uses: actions/cache@v2
       id: toolchain-id
       with:
-        path: ${{ inputs.tools-version }}
+        path: ${{ inputs.tools-version }}-toolchain-artifact
         key: ${{ inputs.tools-version }}
         restore-keys: ${{ inputs.tools-version }}
     - name: generate data if cache miss
