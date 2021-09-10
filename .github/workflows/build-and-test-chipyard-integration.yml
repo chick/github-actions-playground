@@ -8,3 +8,25 @@ jobs:
       - uses: actions/checkout@v2
       - id: install-riscv-toolchain
         uses: ./.github/actions/install-riscv-toolchain
+      - id: install-riscv-toolchain-direct
+        uses: ./.github/actions/toolchain-build
+        with:
+          tools-version: 'RISCVDIRECT'
+      - id: install-esp-toolchain
+        uses: ./.github/actions/install-esp-toolchain
+      - id: build-verilator
+        uses: ./.github/actions/install-verilator
+        with:
+          build-server: ${{ secrets.BUILDSERVER }}
+          build-user: ${{ secrets.BUILDUSER }}
+      - id: run-fixed-key
+        uses: ./.github/actions/fixed-key
+      - name: Show directory
+        run: ls -ltr
+      - name: show artifacts created
+        run: |
+          cat MY-CACHE-KEY
+          for i in *artifact ; do
+            echo SHOWING $i
+            cat $i
+          done
