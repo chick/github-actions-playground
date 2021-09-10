@@ -19,7 +19,7 @@ runs:
     - name: generate data if cache miss
       run: |
         if [[ "${{ steps.toolchain-id.outputs.cache-hit }}" != 'true' ]]; then
-          echo "COMPILED ${{ inputs.tools-version" > ${{ inputs.tools-version }}-toolchain-artifact
+          echo "COMPILED ${{ inputs.tools-version }}" > ${{ inputs.tools-version }}-toolchain-artifact
         else
           echo "cache hit do not generate data"
         fi
