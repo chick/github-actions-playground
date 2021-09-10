@@ -16,9 +16,13 @@ runs:
         path: ${{ inputs.tools-version }}
         key: ${{ inputs.tools-version }}
         restore-keys: ${{ inputs.tools-version }}
-    - name: run stuff
+    - name: generate data if cache miss
       run: |
-        echo "abcdef" > ${{ inputs.tools-version }}
+        if [[ ${{ steps.toolchain-id.outputs.cache-hit }} != 'true' ]]; then
+          echo "fixed-key-data" > MY-CACHE-KEY
+        else
+          echo "cache hit do not generate data"
+        fi
       shell: bash
 
 
