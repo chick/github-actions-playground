@@ -18,7 +18,7 @@ runs:
         restore-keys: ${{ inputs.tools-version }}
     - name: generate data if cache miss
       run: |
-        if [[ ${{ steps.toolchain-id.outputs.cache-hit }} != 'true' ]]; then
+        if [[ "${{ steps.toolchain-id.outputs.cache-hit }}" != 'true' ]]; then
           echo "fixed-key-data" > MY-CACHE-KEY
         else
           echo "cache hit do not generate data"
