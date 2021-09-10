@@ -11,7 +11,7 @@ jobs:
       - id: install-riscv-toolchain-direct
         uses: ./.github/actions/toolchain-build
         with:
-          tools-version: 'RISCVDIRECT'
+          tools-version: 'RISCVDIRECT1'
       - id: install-esp-toolchain
         uses: ./.github/actions/install-esp-toolchain
       - id: build-verilator

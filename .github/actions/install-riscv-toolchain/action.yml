@@ -7,4 +7,4 @@ runs:
     - id: build-riscv-tools-toolchain
       uses: ./.github/actions/toolchain-build
       with:
-        tools-version: 'ESPESP'
+        tools-version: 'ESPESP1'
