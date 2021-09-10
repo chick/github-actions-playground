@@ -10,4 +10,14 @@ runs:
   steps:
     - run: echo TOOLCHAIN-BUILD ${{ inputs.tools-version }} > ${{ inputs.tools-version }}-toolchain-artifact
       shell: bash
+    - uses: actions/cache@v2
+      id: toolchain-id
+      with:
+        path: ${{ inputs.tools-version }}
+        key: ${{ inputs.tools-version }}
+    - name: run stuff
+      run: |
+        echo "abcdef" > ${{ inputs.tools-version }}
+      shell: bash
+
 
