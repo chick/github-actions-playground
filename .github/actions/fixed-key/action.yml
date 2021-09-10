@@ -1,6 +1,11 @@
 name: fixed-key
 description: 'Runs cache with fixed key'
 
+inputs:
+  unused:
+    description: "dog"
+    required: false
+    default: fox
 runs:
   using: "composite"
   steps:
@@ -13,7 +18,15 @@ runs:
         key: MY-CACHE-KEY
         restore-keys: MY-CACHE-KEY
     - name: run stuff
-      run: echo "fixed-key-data" > MY-CACHE-KEY
+      run: |
+        if [[ ${{ steps.toolchain-id.outputs.cache-hit }} != 'true' ]]; then
+          echo "fixed-key-data" > MY-CACHE-KEY
+        else
+          echo "cache hit do not run"
+        fi
+      shell: bash
+    - name: done
+      run: echo done
       shell: bash
 
 
