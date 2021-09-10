@@ -13,7 +13,6 @@ runs:
         key: MY-CACHE-KEY
         restore-keys: MY-CACHE-KEY
     - name: run stuff
-      if: steps.toolchain-id.outputs.cache-hit != 'true'
       run: echo "fixed-key-data" > MY-CACHE-KEY
       shell: bash
 
