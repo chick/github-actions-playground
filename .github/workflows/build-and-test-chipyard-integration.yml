@@ -8,6 +8,10 @@ jobs:
       - uses: actions/checkout@v2
       - id: install-riscv-toolchain
         uses: ./.github/actions/install-riscv-toolchain
+      - id: install-riscv-toolchain-direct
+        uses: ./.github/actions/toolchain-build
+        with:
+          tools-version: 'RISCV-DIRECT'
       - id: install-esp-toolchain
         uses: ./.github/actions/install-esp-toolchain
       - id: build-verilator
@@ -23,5 +27,6 @@ jobs:
           cat esp-tools-toolchain-artifact
           cat build-verilator
           cat MY-CACHE-KEY
+          cat RISCV-DIRECT-toolchain-artifact
       - name: Show directory
         run: ls -ltr
