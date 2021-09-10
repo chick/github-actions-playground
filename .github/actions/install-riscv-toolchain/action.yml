@@ -4,7 +4,7 @@ description: 'Builds the RISCV toolchain'
 runs:
   using: "composite"
   steps:
-    - name: Call build-toolchain riscv-tools
+    - id: build-riscv-tools-toolchain
       uses: ./.github/actions/toolchain-build
       with:
         tools-version: 'riscv-tools'
