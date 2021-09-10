@@ -21,12 +21,12 @@ jobs:
           build-user: ${{ secrets.BUILDUSER }}
       - id: run-fixed-key
         uses: ./.github/actions/fixed-key
-      - name: show artifact
+      - name: Show directory
+        run: ls -ltr
+      - name: show artifacts created
         run: |
           cat riscv-tools-toolchain-artifact
           cat esp-tools-toolchain-artifact
           cat build-verilator
           cat MY-CACHE-KEY
           cat RISCV-DIRECT-toolchain-artifact
-      - name: Show directory
-        run: ls -ltr
