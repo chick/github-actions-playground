@@ -8,8 +8,8 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: echo TOOLCHAIN-BUILD ${{ inputs.tools-version }} > ${{ inputs.tools-version }}-toolchain-artifact
-      shell: bash
+#    - run: echo TOOLCHAIN-BUILD ${{ inputs.tools-version }} > ${{ inputs.tools-version }}-toolchain-artifact
+#      shell: bash
     - uses: actions/cache@v2
       id: toolchain-id
       with:
