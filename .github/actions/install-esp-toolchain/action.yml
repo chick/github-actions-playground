@@ -1,0 +1,10 @@
+name: install-esp-toolchain
+description: 'Builds the ESP toolchain'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Call build-toolchain riscv-tools
+      uses: ./.github/actions/toolchain-build
+      with:
+        tools-version: 'esp-tools'
