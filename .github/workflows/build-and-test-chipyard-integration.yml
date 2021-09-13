@@ -6,26 +6,52 @@ jobs:
     name: build-and-test-chipyard-integration
     steps:
       - uses: actions/checkout@v2
-      - id: install-riscv-toolchain
-        uses: ./.github/actions/install-riscv-toolchain
       - id: install-riscv-toolchain-direct
         uses: ./.github/actions/toolchain-build
         with:
-          tools-version: 'RISCVDIRECT1'
-      - id: install-esp-toolchain
-        uses: ./.github/actions/install-esp-toolchain
+          tools-version: 'RISCV'
+
+  install-esp-toolchain:
+    runs-on: ubuntu-latest
+    name: build-and-test-chipyard-integration
+    steps:
+      - uses: actions/checkout@v2
+      - id: install-esp-toolchain-direct
+        uses: ./.github/actions/toolchain-build
+        with:
+          tools-version: 'ESP'
+
+  build-verilator:
+    runs-on: ubuntu-latest
+    name: build-and-test-chipyard-integration
+    steps:
+      - uses: actions/checkout@v2
       - id: build-verilator
         uses: ./.github/actions/install-verilator
         with:
           build-server: ${{ secrets.BUILDSERVER }}
           build-user: ${{ secrets.BUILDUSER }}
-#      - id: run-fixed-key
-#        uses: ./.github/actions/fixed-key
+
+  chipyard-rocket-run-tests:
+    runs-on: ubuntu-latest
+    name: build-and-test-chipyard-integration
+    needs: [install-riscv-toolchain, install-esp-toolchain, build-verilator]
+    steps:
+      - uses: actions/checkout@v2
+
+      - id: install-riscv-toolchain-direct
+        uses: ./.github/actions/toolchain-build
+        with:
+          tools-version: 'RISCV'
+      - id: install-esp-toolchain-direct
+        uses: ./.github/actions/toolchain-build
+        with:
+          tools-version: 'ESP'
+
       - name: Show directory
         run: ls -ltr
       - name: show artifacts created
         run: |
-          cat MY-CACHE-KEY
           for i in *artifact ; do
             echo SHOWING $i
             cat $i
