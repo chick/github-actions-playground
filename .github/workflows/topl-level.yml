@@ -28,6 +28,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: show-git-stuff
+        run: |
+          echo "Branch and sha are ${{ inputs.group-key }}-${{ github.ref }}-${{ github.sha }}"
+
       - id: do-level-1
         uses: ./.github/actions/instantiate-data-1
         with:
