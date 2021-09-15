@@ -1,0 +1,49 @@
+on: [push]
+
+jobs:
+  instantiate-data-1:
+    runs-on: ubuntu-latest
+    name: load-data-1
+    steps:
+      - uses: actions/checkout@v2
+      - id: data-string-1
+        uses: ./.github/actions/instantiate-data-1
+        with:
+          data-string: 'ONE-LEVEL-DEEP'
+
+  instantiate-data-2:
+    runs-on: ubuntu-latest
+    name: load-data-2
+    steps:
+      - uses: actions/checkout@v2
+      - id: data-string-1
+        uses: ./.github/actions/instantiate-data-2-1
+        with:
+          data-string: 'LEVEL-1-OF-2'
+
+  top-level:
+    runs-on: ubuntu-latest
+    name: test-instantiate-and-cache
+    needs: [instantiate-data-1, instantiate-data-2]
+    steps:
+      - uses: actions/checkout@v2
+
+      - id: do-level-1
+        uses: ./.github/actions/instantiate-data-1
+        with:
+          data-string: 'LEVEL-1-OF-1'
+
+      - id: do-level-2
+        uses: ./.github/actions/instantiate-data-2-1
+        with:
+          data-string: 'LEVEL-1-OF-2'
+
+      - name: Show files
+        run: ls -ltr
+      - name: show artifacts created
+        run: |
+          for i in DATASTRING* ; do
+            echo SHOWING $i
+            cat $i
+          done
+        shell: bash
