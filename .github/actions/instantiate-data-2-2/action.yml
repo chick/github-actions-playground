@@ -1,0 +1,26 @@
+name: instantiate-data-2-2
+description: 'cache user data'
+inputs:
+  data-string:
+    description: data-to-save-to-cache
+    required: false
+    default: 'wolf'
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/cache@v2
+      id: data-string-id
+      with:
+        path: DATASTRING-2-2
+        key: DATASTRING-2-2
+    - name: generate data if cache miss
+      run: |
+        if [[ "${{ steps.data-string-id.outputs.cache-hit }}" != 'true' ]]; then
+          echo "DATASTRING=${{ inputs.data-string }}" > DATASTRING-2-2
+        else
+          echo "cache hit do not generate data"
+        fi
+      shell: bash
+
+
+
