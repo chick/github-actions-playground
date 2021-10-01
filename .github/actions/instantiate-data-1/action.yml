@@ -21,5 +21,8 @@ runs:
           echo "cache hit do not generate data"
         fi
       shell: bash
+    - name: Run a script
+      run: ./github/scripts/script.sh
+      shell: bash
 
 

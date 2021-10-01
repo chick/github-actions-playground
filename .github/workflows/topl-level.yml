@@ -1,5 +1,8 @@
 on: [push]
 
+env:
+  CI_DIR: mumbo-jumbo
+
 jobs:
   instantiate-data-1:
     runs-on: ubuntu-latest
